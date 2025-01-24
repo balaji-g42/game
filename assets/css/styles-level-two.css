@@ -1,0 +1,129 @@
+
+/* START OF LEVEL 2 STYLE */
+.drop-stick-level-2 {
+    background: url('../image/stick.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 372px;
+    height: auto;
+    min-height: 40px;
+}
+
+.stick-question {
+    align-self: center;
+    color: #7F3621;
+    text-shadow: none;
+    letter-spacing: 0.1cap;
+    font-size: 16px;
+    font-size: 1vw;
+    text-align: center;
+}
+
+.drag-box-stick {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 170px;
+    height: 80px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    position: absolute;
+    font-size: 6svh;
+    font-family: HoboStd; 
+}
+
+.drag-box-stick-answer {
+    background-image: url('../image/stick_answer.png');
+    color: #369CA2;
+    text-shadow: -1px -1px 0 #7F3621, 1px -1px 0 #7F3621, -1px 1px 0 #7F3621, 1px 1px 0 #7F3621;
+}
+
+/* END OF LEVEL 2 STYLE */
+
+/* START OF COMMON DIALOG MODAL STYLE */
+
+.dialog-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+    padding-top: 60px;
+}
+
+/* Dialog Modal Content */
+.dialog-modal-content {
+    background-image: url('../image/level-complete-dialog.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%; /* Control modal size */
+    height: 50vh;
+    text-align: center;
+}
+
+/* Dialog Modal Title */
+.dialog-modal-title {
+    margin-top: 48px;
+    color: #369CA2;
+    text-shadow: -1px -1px 0 #7F3621, 1px -1px 0 #7F3621, -1px 1px 0 #7F3621, 1px 1px 0 #7F3621;
+}
+
+/* Dialog Modal Buttons */
+.dialog-modal-buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10%;
+    gap: 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.dialog-modal-btn {
+    background: none;        /* Removes background color */
+    border: none;            /* Removes the border */
+    padding: 0;              /* Removes any default padding */
+    outline: none;           /* Removes the outline when focused */
+    cursor: pointer;        /* Makes sure the button is still clickable */
+}
+
+/* Dialog Modal Button Styles */
+.dialog-modal-btn img {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    border: none;
+}
+
+/* Button hover effect */
+.dialog-modal-btn img:hover {
+    opacity: 0.8;
+}
+
+/* END OF COMMON DIALOG MODAL STYLE */
+
+
+/* LEVEL PROGRESS BAR GIF */
+
+.gif-container {
+    width: 90px; /* Remove fixed width, based on GIF */
+    height: 320px; /* Remove fixed height, based on GIF */
+    display: flex;
+    overflow: hidden; /* Ensures the GIF does not overflow if it's too large */
+    background-repeat: no-repeat;
+    position: absolute; 
+}
+
+.gif-container img {
+    max-width: 100%;  /* Ensures the GIF fits within the container without scaling */
+    max-height: 100%; /* Ensures the GIF fits within the container without scaling */
+}

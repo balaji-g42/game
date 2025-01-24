@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/raft-grid.css">
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/jquery-ui.js"></script>
+    <title>Beach Raft</title>
+  <script>
+   $(document).ready(function() {
+        $("#level2-button").click(function() {
+            // Action on button click
+           // alert("Level 2 Button clicked!");
+            location.href = "level-2-end.html"; // Redirect to the next page
+        });
+    });
+  </script>
+</head>
+<body>
+  <div id="page-wrapper">
+      <div class="user-name">
+          <img src="../assets/image/name-frame.png" alt="">
+          <span>SUNEEL SONI</span>
+      </div>
+      <div>
+        <img src="../assets/image/level-2-hit.png" alt="" style="display:block; width:500px; height:100px; margin-bottom: 20px;">
+    </div>
+    <div style="text-align: center;">
+        <button id="level2-button" style="border: none; background: transparent; padding: 0;">
+            <img src="../assets/image/level-2-btn.png" alt="Level 2 Button" style="display:block; width:200px; height:70px;">
+        </button>
+    </div>
+    
+    <a href="../beach-raft.html" class="home-button img-button"><img src="../assets/image/home-icon.png" alt=""></a>
+
+  </div>
+</body>
+<script src="../assets/js/drag-drop.js"></script>
+</html>

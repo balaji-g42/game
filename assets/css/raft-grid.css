@@ -1,0 +1,42 @@
+.drop-pad {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 256px;
+    background-color: rgba(0, 0, 0, 0);
+    transform: translate(-50%, -50%);
+    border: none;
+    z-index: 1;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* Draggable elements */
+.drag-box {
+    position: absolute;
+    z-index: 2;
+    background-color: none;
+    border: none;
+    cursor: grab;
+    user-select: none;
+}
+
+.drag-box img {
+    display: block; /* Remove inline spacing from images */
+    width: 100%; /* Set image to fill container width */
+    height: auto; /* Maintain aspect ratio */
+    pointer-events: none; /* Prevent unintended dragging of the image itself */
+}
+
+.sortable-placeholder {
+    background-color: rgba(0, 0, 255, 0.2); /* Blue tint for placeholder */
+    border: 2px dashed #007bff; /* Dashed blue border for clarity */
+    height: 100%; /* Match the height of the grid cell */
+    width: 100%; /* Match the width of the grid cell */
+}
+
+/* Optional: Styling for the currently dragging item */
+.dragging {
+    opacity: 0.5; /* Make the dragging item semi-transparent */
+}

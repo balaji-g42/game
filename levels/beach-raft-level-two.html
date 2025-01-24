@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <link rel="stylesheet" href="../assets/css/styles-level-two.css">
+  <script src="../assets/js/jquery-3.7.1.min.js"></script>
+  <script src="../assets/js/jquery-ui.js"></script>
+  <title>Beach Raft</title>
+
+  <script>
+    var snd = new Audio("../assets/audio/click.mp3");
+
+    function playAudio() {
+      snd.play();
+      snd.currentTime = 0;
+    }
+
+    $(function () {
+  // Store correct answers
+  var givenAnswers = {};
+  var originalStyles = {};
+
+  // Store the original position of the draggable items
+  $(".drag-box-stick").each(function () {
+    originalStyles[this.id] = $(this).attr("style");
+  });
+
+  // Define correct answers for each droppable area
+  var correctAnswers = {
+    "droppable-1": "32",
+    "droppable-2": "84",
+    "droppable-3": "3",
+  };
+
+  // Make the items draggable
+  $(".drag-box-stick").draggable({
+    revert: "invalid", // Snap back if not dropped into a valid droppable area
+  });
+
+  // Define droppable areas and allow any item to be dropped
+  $(".drop-stick-level-2").droppable({
+    tolerance: "touch",
+    drop: function (event, ui) {
+      var droppedElement = ui.helper;
+      var droppableId = $(this).attr("id");
+
+      // Save the current drag-drop relation
+      givenAnswers[droppableId] = droppedElement.text().trim();
+    }
+  });
+
+  // Check answers when the button is clicked
+  $(".check-button").click(function () {
+    playAudio(); // Play sound if all answers are correct
+      console.log("CONGRATULATIONS!");
+      // Show success dialog
+      var dialogModal = document.getElementById('dialogModal');
+      dialogModal.style.display = 'block';
+  });
+
+  // Handle dialog actions
+  $("#btn_out").click(function () {
+    isAllCorrect = true;
+    // Validate all answers
+    for (var droppableId in correctAnswers) {
+      if (givenAnswers[droppableId] !== correctAnswers[droppableId]) {
+        isAllCorrect = false;
+        break;
+      }
+    }
+    if (isAllCorrect) {
+      console.log("CONGRATULATIONS!");
+      location.href = "beach-raft-level-2-hint.html"; // Redirect to the next page
+    } else {
+      // reload page
+      dialogModal.style.display = 'none'; // Close the dialog
+      location.reload();
+    }
+
+  });
+
+  $("#btn_non").click(function () {
+    dialogModal.style.display = 'none'; // Close the dialog
+
+  });
+});
+
+  </script>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <div class="user-name">
+      <img src="../assets/image/name-frame.png" alt="">
+      <span>SUNEEL SONI</span>
+    </div>
+    <div>
+      <img src="../assets/image/level_2_raft.png" alt="" style="position: absolute; top: 4%; width: 280px; left: 35%;">
+      <div id="draggable-1" class="drag-box-stick drag-box-stick-answer" style="top: 30%; right: 30%;">84</div>
+      <div id="draggable-2" class="drag-box-stick drag-box-stick-answer" style="top: 26%; right: 15%;">80</div>
+      <div id="draggable-3" class="drag-box-stick drag-box-stick-answer" style="top: 45%; right: 32%;">90</div>
+      <div id="draggable-4" class="drag-box-stick drag-box-stick-answer" style="top: 40%; right: 12%; padding-left: 12px;">3</div>
+      <div id="draggable-5" class="drag-box-stick drag-box-stick-answer" style="top: 55%; right: 10%;padding-left: 12px;">1</div>
+      <div id="draggable-6" class="drag-box-stick drag-box-stick-answer"
+        style="top: 62%; right: 25%;padding-left: 12px;">5</div>
+      <div id="draggable-7" class="drag-box-stick drag-box-stick-answer"
+        style="top: 69%; right: 8%;padding-left: 12px;">32</div>
+      <div id="draggable-8" class="drag-box-stick drag-box-stick-answer"
+        style="top: 80%; right: 28%;padding-left: 12px;">52</div>
+      <div id="draggable-9" class="drag-box-stick drag-box-stick-answer"
+        style="top: 84%; right: 12%;padding-left: 12px;">102</div>
+
+   <!-- Progress Bar with GIF -->
+   <div class="gif-container" style="top:20%; right:2%;padding-left:12px;">
+    <img id="myGif" src="../assets/gif/level1.gif" alt="Playing GIF">
+</div>
+
+      <div style="position: absolute; top: 35%; left: 10%;align-items: center;">
+        <span class="stick-question" style="transform: translateY(20%);">Quelles sont, en milliard d'euros, les économies réalisées pour notre système</span>
+        <div id="droppable-1" class="drop-stick-level-2"></div>
+        <span class="stick-question">de santé grâce au médicament générique entre 2000 et 2020 ?</span>
+      </div>
+      <div style="position: absolute; top: 55%; left: 20%;align-items: center;">
+        <span class="stick-question" style="transform: translateY(20%);">Quel est le taux national de substitution en 2023 ?</span>
+        <div id="droppable-2" class="drop-stick-level-2"></div>
+      </div>
+      <div style="position: absolute; top: 75%; left: 15%;align-items: center;">
+        <span class="stick-question" style="transform: translateY(20%);">Quel est le taux de mention "non substituable" en 2023 ?</span>
+        <div id="droppable-3" class="drop-stick-level-2"></div>
+      </div>
+    </div>
+    <a href="../beach-raft.html" class="home-button img-button"><img src="../assets/image/home-icon.png" alt=""></a>
+    <button onclick="playAudio()" class="check-button img-button"><img src="../assets/image/check-icon.png" alt="">
+    </button>
+  </div>
+
+  <!-- Dialog Modal Structure -->
+  <div id="dialogModal" class="dialog-modal">
+    <div class="dialog-modal-content">
+        <!-- Modal Title -->
+        <h1 class="dialog-modal-title">VoS rAMeS sONt-eLLeS pRêtES ?</h1>
+
+        <!-- Image Buttons -->
+        <div class="dialog-modal-buttons">
+            <button class="dialog-modal-btn" id="btn_out">
+                <img src="../assets/image/icon-out.png" alt="Button 1">
+            </button>
+            <button class="dialog-modal-btn" id="btn_non">
+                <img src="../assets/image/icon-non.png" alt="Button 2">
+            </button>
+        </div>
+    </div>
+  </div>
+</body>
+
+</html>

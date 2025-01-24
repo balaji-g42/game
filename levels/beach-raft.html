@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/raft-grid.css">
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/jquery-ui.js"></script>
+    <title>Beach Raft</title>
+
+  <script>
+    var snd = new Audio("../assets/audio/click.mp3");
+    
+    function playAudio() {
+  // Reset and play the audio
+  snd.currentTime = 0;
+  snd.play();
+
+  // Navigate to the new page after the audio starts playing
+  snd.onplay = () => {
+    window.location.href = 'beach-raft-level-two.html';
+  };
+
+  // Optional: Add a delay before navigating
+  // setTimeout(() => {
+  //   window.location.href = 'beach-raft-level-two.html';
+  // }, 1000); // Adjust delay as needed (1000ms = 1 second)
+}
+    $( function() {
+        $( "#draggable-1, #draggable-2, #draggable-3, #draggable-4, #draggable-5, #draggable-6, #draggable-7, #draggable-8, #draggable-9" ).draggable();
+      
+        $( "#droppable").droppable({
+        drop: function( event, ui ) {
+          playAudio()
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="page-wrapper">
+      <div class="user-name">
+          <img src="../assets/image/name-frame.png" alt="">
+          <span>SUNEEL SONI</span>
+      </div>
+      <div>
+          <div id="draggable-1" class="drag-box" data-type="question" style="top: 6%; left: 24%;"><img src="../assets/image/beach-raft/question_1.png" alt="Question 1" class="drag-image"></div>
+          <div id="draggable-2" class="drag-box" data-type="answer" style="top: 8%; left: 54%; font-size: 12px;"><img src="../assets/image/beach-raft/answer_1.png" alt="Question 1" class="drag-image"></div>
+          <div id="draggable-3" class="drag-box" data-type="question" style="top: 52%; left: 14%;"><img src="../assets/image/beach-raft/question_2.png" alt="Question 2" class="drag-image"></div>
+          <div id="draggable-4" class="drag-box" data-type="answer" style="top: 28%; left: 10%; font-size: 9px;"><img src="../assets/image/beach-raft/answer_2.png" alt="Question 1" class="drag-image"></div>
+          <div id="draggable-5" class="drag-box" data-type="question" style="top: 4%; right: 8%;"><img src="../assets/image/beach-raft/question_3.png" alt="Question 3" class="drag-image"></div>
+          <div id="draggable-6" class="drag-box" data-type="answer" style="top: 72%; left: 42%; font-size: 12px;"><img src="../assets/image/beach-raft/answer_3.png" alt="Question 1" class="drag-image"></div>
+          <div id="draggable-7" class="drag-box" data-type="answer" style="top: 80%; left: 26%;"><img src="../assets/image/beach-raft/answer_4.png" alt="Question 1" class="drag-image"></div>
+          <div id="draggable-8" class="drag-box" data-type="answer" style="top: 74%; right: 22%;"><img src="../assets/image/beach-raft/answer_5.png" alt="Question 1" class="drag-image"></div>
+          <div id="draggable-9" class="drag-box" data-type="answer" style="top: 32%; right: 16%;"><img src="../assets/image/beach-raft/answer_6.png" alt="Question 1" class="drag-image"></div>
+          <div id="droppable" class="drop-pad"></div>
+      </div>
+      <a href="../beach-raft.html" class="home-button img-button"><img src="../assets/image/home-icon.png" alt=""></a>
+      <button id="openConfirmationPopup" class="check-button img-button"><img src="../assets/image/check-icon.png" alt=""></button>
+      <div id="confirmationPopup" class="confirmation-popup-mask">
+        <div class="confirmation-popup">
+          <div class="confirmation-popup-content">
+            <h1 class="confirmation-popup-header blue-text">Votre radeau est-il prêt?</h1>
+            <div class="confirmation-popup-body">
+                <button id="moveToNextStep" class="popup-button blue-text">OUT</button>
+                <button id="closeConfirmationPopup" class="popup-button brown-text">NON</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
+<script src="../assets/js/drag-drop.js"></script>
+</html>
